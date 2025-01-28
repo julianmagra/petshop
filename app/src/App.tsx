@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { styled } from "@mui/system";
+import { PrimaryButton } from './components/buttons';
 
+const App = () => {
+  const SoftCard = styled('div')(({ theme }) => ({
+    backgroundColor: theme.palette.background.paper,
+    borderRadius: '12px',
+    padding: '24px',
+    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+    transition: 'box-shadow 0.3s ease',
+    '&:hover': {
+      boxShadow: '0px 6px 16px rgba(0, 0, 0, 0.15)',
+    },
+  }));
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <PrimaryButton>Primary</PrimaryButton>
+     <SoftCard>
+      <h2>Bienvenido a la gestión de inventario</h2>
+      <p>Una solución sencilla e intuitiva para tu negocio.</p>
+    </SoftCard> 
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
